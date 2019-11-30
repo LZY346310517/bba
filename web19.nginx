@@ -1,0 +1,18 @@
+server {
+    listen 80;
+
+    gzip on;
+    gzip_types  application/x-javascript text/css;
+
+    location /images {
+        alias /var/www/web19/images;
+    }
+
+    location /static {
+        alias /var/www/web19/static;
+    }
+
+    location / {
+        proxy_pass http://localhost:3000;
+    }
+}
